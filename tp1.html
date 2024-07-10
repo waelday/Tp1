@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <h1>Atelier 06 Manip-06</h1>
+    <h2> Ajouter / Modifier </h2>
+    <h3>Manipulation 6</h3>
+    <div id="divMessage"></div>
+
+    <form name="formEtudiant">
+        <label>Nom:</label>
+        <input type="text" id="inTextNom" /><br>
+
+        <label>Prenom:</label>
+        <input type="text" id="inTextPrenom" /><br>
+        
+        <label>Age:</label>
+        <input type="text" id="inTextAge" /><br>
+
+        <label>Email:</label>
+        <input type="text" id="inTextEmail" /><br>
+
+        <input type="button" value="OK" onclick="if(validerForm()) AjouterNouvelEtudiant()" />
+    </form>
+
+    <h1>Liste des étudiants</h1>
+    <table border="1px">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Age</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="tabEtudiants"></tbody>
+    </table>
+
+    <!-- Div pour afficher la réponse Ajax -->
+    <div id="demo"></div>
+
+    <script>
+        function AjouterNouvelEtudiant() {
+            // Votre fonction existante pour ajouter un nouvel étudiant
+        }
+
+        function validerForm() {
+            // Votre fonction existante pour valider le formulaire
+        }
+
+        // Fonction pour charger le contenu Ajax
+        function loadDoc() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("demo").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "SCRIPT.js");
+            xhttp.send();
+        }
+
+        // Appeler loadDoc lorsque la page se charge
+        window.onload = function() {
+            loadDoc();
+        };
+    </script>
+    <script src="SCRIPT.js"></script>
+</body>
+
+</html>
